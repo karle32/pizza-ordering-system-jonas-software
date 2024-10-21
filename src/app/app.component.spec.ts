@@ -14,16 +14,18 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'simple-sites-template' title`, () => {
+  it(`should have the 'pizza-ordering-system' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('simple-sites-template');
+    expect(app.title).toEqual('pizza-ordering-system');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, simple-sites-template');
+    expect(compiled.querySelector('h1')?.textContent).toContain(
+      'Hello, pizza-ordering-system'
+    );
   });
 });

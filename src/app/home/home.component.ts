@@ -10,5 +10,5 @@ const MODULES = [];
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  title = 'simple-sites-template';
+  title = 'pizza-ordering-system';
 }
