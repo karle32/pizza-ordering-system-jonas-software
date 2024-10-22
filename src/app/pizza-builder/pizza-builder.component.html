@@ -1,0 +1,90 @@
+<div class="container my-5">
+  <div class="p-5 text-center">
+    <h1 class="text-body-emphasis">Let's Build Our Pizza</h1>
+    <p class="col-lg-8 mx-auto fs-5 text-muted">
+      Choose a pizza size, then add toppings. Add a promo code, if you have one.
+    </p>
+    <div class="d-inline-flex gap-2 mb-5">
+      <button
+        class="d-inline-flex align-items-center btn btn-outline-primary btn-lg px-4 rounded-pill"
+        type="button"
+        (click)="addToCart()"
+      >
+        Call to action
+      </button>
+      <button
+        class="btn btn-outline-secondary btn-lg px-4 rounded-pill"
+        type="button"
+      >
+        Secondary link
+      </button>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center">
+    <div
+      class="btn-group btn-group-lg mx-auto gap-2 mb-5"
+      role="group"
+      aria-label="Basic radio toggle button group"
+    >
+      @for (pizzaSize of pizzaSizes; track $index) {
+
+      <input
+        type="radio"
+        class="btn-check"
+        name="btnradio"
+        id="{{ pizzaSize.size }}{{ pizzaSize.price }}"
+        (click)="onPizzaSelected(pizzaSize)"
+        [checked]="pizzaSize.size === 'Medium'"
+        autocomplete="off"
+      />
+      <label
+        class="btn btn-outline-primary rounded-pill"
+        for="{{ pizzaSize.size }}{{ pizzaSize.price }}"
+      >
+        {{ pizzaSize.size }} - {{ pizzaSize.price | currency }}
+      </label>
+      }
+    </div>
+  </div>
+  <div class="row g-4">
+    @for (topping of pizzaToppings; track $index) {
+    <div class="col-sm-6 col-xl-3">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="..." />
+        <div class="card-body">
+          <div>
+            <h5 class="card-title">{{ topping.name }}</h5>
+            @if (topping.type === "Veggie") {
+            <span class="badge rounded-pill text-bg-success">Veggie</span>
+            } @else {
+            <span class="badge rounded-pill text-bg-light">Meat</span>
+            }
+          </div>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <div class="d-flex justify-content-between mt-3">
+            <div class="mt-1 pt-2">
+              <i class="fas fa-plus fa-sm"></i>{{ topping.price | currency }}
+            </div>
+            <ul class="ks-cboxtags align-items-center ps-0">
+              <li>
+                <input
+                  type="checkbox"
+                  class="btn btn-outline-primary"
+                  id="{{ topping.name }}"
+                  (click)="onToppingSelected(topping)"
+                  value="{{ topping.name }}"
+                /><label for="{{ topping.name }}">Add</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+{{ subTotal() }}
