@@ -49,10 +49,11 @@ export class PizzaBuilderComponent {
 
   cartItems = this.cartService.cartItems;
   subTotal = this.cartService.subTotal;
+  tax = this.cartService.tax;
+  totalCost = this.cartService.totalPrice;
 
   onPizzaSelected(pizzaSize: PizzaSize): void {
     this.currentPizzaSelected.size = pizzaSize;
-    console.log('Current Pizza was Selected', this.currentPizzaSelected);
   }
 
   onToppingSelected(topping: PizzaTopping): void {
@@ -61,14 +62,10 @@ export class PizzaBuilderComponent {
     );
 
     if (index === -1) {
-      console.log('topping was added');
-
       this.currentPizzaSelected.toppings.push(topping);
     } else {
-      console.log('topping was not added');
       this.currentPizzaSelected.toppings.splice(index, 1);
     }
-    console.log('Current Topping Selected', this.currentPizzaSelected);
   }
 
   addToCart(): void {

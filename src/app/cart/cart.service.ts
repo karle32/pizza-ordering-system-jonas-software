@@ -57,8 +57,6 @@ export class CartService {
           pizza.price +
           toppings.reduce((sum, topping) => sum + topping.price, 0);
         // Apply 50% discount
-        console.log('Applying Offer 3');
-
         return originalPrice / 2;
       }
     }
@@ -76,9 +74,6 @@ export class CartService {
     const finalPrice = this.applyPromotions(item); // Update cartItems with the new pizza item and final price
     const updatedItem = { ...item, price: finalPrice };
     this.cartItems.update((items) => [...items, updatedItem]);
-
-    // Log or update UI if needed
-    console.log('Item added to cart:', updatedItem);
   }
 
   removeFromCart(index: number): void {
