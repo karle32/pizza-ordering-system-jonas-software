@@ -1,4 +1,3 @@
 
 User-agent: *
 Disallow: /
-Sitemap: https://www.yoursite.com/sitemap.xml
