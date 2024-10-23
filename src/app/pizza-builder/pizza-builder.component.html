@@ -84,41 +84,42 @@
     </div>
     <aside class="col-xl-3">
       <div class="row g-4">
-        <!-- Buy now widget -->
-        <div class="card mb-4">
-          <!-- Card body -->
-          <div class="card-body">
-            <div class="card-title">
-              <h5>Your Order</h5>
+        <div class="col-md-6 col-xl-12">
+          <div class="card mb-4">
+            <!-- Card body -->
+            <div class="card-body">
+              <div class="card-title">
+                <h5>Your Order</h5>
+              </div>
+              <!-- Price -->
+              <ul
+                class="list-group list-group-borderless border-top-0 border-bottom-0 my-3"
+              >
+                @for (item of cartItems(); track $index) {
+                <li class="list-group-item">
+                  <p class="d-flex justify-content-between">
+                    <span class="h5 fw-light mb-0">
+                      <strong>{{ item.pizza.size }} Pizza</strong></span
+                    ><span class="h5 fw-light mb-0">
+                      {{ item.price | currency }}
+                    </span>
+                  </p>
+                  <p>
+                    @for (topping of item.toppings; track $index; let last =
+                    $last) {
+                    <span class="h6 fw-light mb-0">{{ topping.name }}</span>
+                    @if (!last) {<span>, </span>} }
+                  </p>
+                </li>
+                }@empty {
+                <li class="list-group-item">Added a Pizza to your cart</li>
+                }
+              </ul>
             </div>
-            <!-- Price -->
-            <ul
-              class="list-group list-group-borderless border-top-0 border-bottom-0 my-3"
-            >
-              @for (item of cartItems(); track $index) {
-              <li class="list-group-item">
-                <p class="d-flex justify-content-between">
-                  <span class="h5 fw-light mb-0">
-                    <strong>{{ item.pizza.size }} Pizza</strong></span
-                  ><span class="h5 fw-light mb-0">
-                    {{ item.price | currency }}
-                  </span>
-                </p>
-                <p>
-                  @for (topping of item.toppings; track $index; let last =
-                  $last) {
-                  <span class="h6 fw-light mb-0">{{ topping.name }}</span>
-                  @if (!last) {<span>, </span>} }
-                </p>
-              </li>
-              }@empty {
-              <li class="list-group-item">Added a Pizza to your cart</li>
-              }
-            </ul>
           </div>
         </div>
         <div class="col-md-6 col-xl-12">
-          <div class="card shadow rounded-2">
+          <div class="card rounded-2">
             <!-- Card body -->
             <div class="card-body">
               <div class="card-title">
