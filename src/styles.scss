@@ -2,3 +2,7 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+
+// Customed styles from pre-built theme
+@import "./scss/card";
+@import "./scss/list-group";
