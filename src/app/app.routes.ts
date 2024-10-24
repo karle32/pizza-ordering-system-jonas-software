@@ -30,7 +30,7 @@ export const routes: Routes = [
   },
   {
     path: 'pizza-builder',
-    title: 'Build Your Order',
+    title: 'Pizza Builder - Build Your Dream Pizza',
     data: {
       metaTags: [
         {
@@ -99,7 +99,7 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Home Page Title',
+    title: 'Pizza Builder',
     data: {
       metaTags: [
         { name: 'description', content: 'Home Page Description' },
